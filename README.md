@@ -1,403 +1,683 @@
-# ✦ SaBuddy — Your AI Social Media Copilot
+<div align="center">
 
-SaBuddy is an all-in-one personal AI social media manager and content creation copilot built natively for Android. It helps creators research, draft, format, schedule, and audit multi-platform content from a single, beautiful workspace. 
+# VEYLO
 
-By turning raw topics, prompts, or screenshots into ready-to-post scripts, multi-slide carousels, scroll-stopping hooks, and weekly editorial plans customized to your brand voice, SaBuddy acts as an indispensable creative partner.
+### Small habits. Better days.
 
----
+**A minimal, privacy-first habit tracker for the browser.**
 
-## 🧭 System Workflow
+No accounts. No cloud. No noise. Just you, your habits, and the quiet satisfaction of showing up every day.
 
-SaBuddy runs on a single, continuous workflow loop to take ideas from raw inspiration to scheduled execution:
+<br />
 
-```text
-Topic, Prompt, or Screenshot
-            │
-            ▼
-   AI Chat or Creative Studio
-            │
-            ├─────────────────────────┐
-            ▼ (Online Mode)           ▼ (Offline Fallback)
-  [ Gemini 1.5 Flash ]       [ Local Creative Engine ]
-            │                         │
-            └────────────┬────────────┘
-                         │
-                         ▼
-  Ideas · Reels · Posts · Captions · Hashtags
-                         │
-                         ▼
-           Save to Local Content Library
-                         │
-                         ▼
-            Schedule in Content Calendar
-                         │
-                         ▼
-     Review Local Metrics & AI Profile Audit
-```
+![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-6-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-EA4AAA?style=for-the-badge)
+![PWA](https://img.shields.io/badge/PWA-Ready-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)
+
+<br />
+
+[Features](#-features) · [Screenshots](#-screenshots) · [Screens](#-screens) · [Tech Stack](#-tech-stack) · [Architecture](#-architecture) · [Planner](#-planner) · [Getting Started](#-getting-started) · [Contributing](#-contributing)
+
+</div>
 
 ---
 
-## 🚀 Key Feature Studios
+## Why VEYLO?
 
-Each module within SaBuddy is fully inspected and verified to deliver highly optimized workflows:
+Most habit apps drown you in dashboards, gamification, and social features. VEYLO takes the opposite approach:
 
-### 🏠 1. Central Dashboard (`DashboardScreen.kt`)
-* **Dynamic Pipeline Overview:** Shows an active SaBuddy AI greeting card, Today's Scheduled Content, Upcoming Content timeline, Quick Ideas drawer, Channel Analytics metric tiles, Connected Platforms, and Recent Activity logs.
-* **Highly Customizable:** Any of the 9 layout cards can be dynamically toggled on or off via the Settings panel to suit your specific tracking needs.
-* **Editable Metric Tiles:** Key metric values can be directly edited inside the app using a dedicated local dialog interface.
-
-### 💬 2. SaBuddy AI Chat Studio (`ChatScreen.kt`)
-* **Multimodal Visual Input:** Attach reference files or feed screenshots directly via Android’s zero-permission Photo Picker or capture new visual concepts using camera previews.
-* **On-the-Fly UI Rendering:** Structural JSON blocks returned by the model are parsed in real time into interactive card templates inside the chat interface.
-* **Instant Action Elements:** Save parsed outputs directly to the local library or write them directly into the editorial calendar.
-
-### 💡 3. Content Ideas Generator (`IdeasScreen.kt`)
-* **Strategic Ideation Frameworks:** Generates 5 structured ideas categorized under major content pillars: *Educational, Entertaining, Inspirational, Behind the Scenes,* and *Storytelling*.
-* **Algorithm-Aware Filtering:** Filter and customize ideas by platform-specific priorities, matching your preferred content tone.
-* **Persistent States:** Backed by full Room CRUD operations with dynamic bookmark states and direct calendar export options.
-
-### 🎬 4. Reels Studio (`ReelsScreen.kt`)
-* **Comprehensive Scripts:** Produces short-form video production guides containing visual hooks, first 3-second retention triggers, beat-by-beat breakdowns, voiceover lines, on-screen text, audio recommendations, and calls to action.
-* **Pacing & Style Adapters:** Select video durations (*15s, 30s, 60s, 90s*) and choose between specific style profiles (*Talking Head, B-Roll & Voiceover, POV/Relatable, Step-by-Step Tutorial, Trend Adaptation*).
-
-### 🖼️ 5. Posts & Carousels Studio (`PostsScreen.kt`)
-* **Structured Carousels:** Generates slide-by-slide breakdowns including Cover Hook, Body Slides, and Closing Slide outlines for carousels ranging from *3 to 10 slides*.
-* **Flexible Feed Formats:** Switch creation profiles to build *Single Image Captions, Long-Form Thought Leadership, or Poll / Audience Engagement prompts*.
-
-### ✍️ 6. Captions & Hooks Studio (`CaptionsScreen.kt`)
-* **Copywriting Frameworks:** Generates 5 distinct scroll-stopping hooks built on proven psychological approaches:
-  - *Curiosity Gap* (withholds key details to drive reads)
-  - *Contrarian* (challenges common industry expectations)
-  - *Problem / Agitate* (highlights an audience pain point)
-  - *Direct Benefit* (focuses on immediate value delivery)
-  - *Story / Confession* (vulnerable narrative openings)
-* **Caption Templates:** Produces 3 separate copywriting structures: *Short & Punchy, Storytelling/Personal,* and *Value/Educational* (complete with CTAs and targeted hashtags).
-
-### #️⃣ 7. Hashtag Research Studio (`HashtagsScreen.kt`)
-* **Tiered Hashtag Architecture:** Organizes tag recommendations into 4 strategic buckets:
-  - *High Volume / Broad* (1M+ platform post volume)
-  - *Medium Volume / Niche* (100k - 1M platform post volume)
-  - *Low Volume / Micro-Community* (10k - 100k targeted post volume)
-  - *Brand / Custom* (User-defined tags)
-* **Presets & Quick Controls:** Fast platform-specific count configurations and single-tap copying options for full sets or individual tiers.
-
-### 🗓️ 8. Content Calendar (`CalendarScreen.kt`)
-* **Interactive Planning:** View upcoming pipelines in Weekly (7-day) or Monthly (30-day) grid interfaces.
-* **Status Lifecycles:** Track and update publication states: `Draft`, `Scheduled`, or `Published`.
-* **AI Content Planner:** Generate an AI 7-day plan that automatically builds a week of strategic content and writes those entries directly to the database.
-
-### 📚 9. Saved Content Library (`SavedContentScreen.kt`)
-* **Search Indexing:** Search across titles, content, hooks, and platform tags in real time.
-* **Database Actions:** Full support for editing, deleting, copying, and rescheduling saved library items.
-
-### 📊 10. Analytics & Profile Audit (`AnalyticsScreen.kt`)
-* **Metrics Workspace:** Edit and audit core channel statistics (Followers, Views, Reach, Engagement, Demographics, Best Posting Times).
-* **AI Profile Audits:** Evaluates locally stored statistics and niche configurations to generate custom assessments detailing strategic strengths, weaknesses, and a 30-day roadmap.
-
-### 🎨 11. Brand Kit Studio (`BrandKitScreen.kt`)
-* **Voice & Tone Consistency:** Stores your Brand Name, Niche/Industry, Target Audience, Brand Voice, Tone, Style, Goals, Do's, and Don'ts.
-* **Automatic System Injection:** Persisted in `SharedPreferences` and systematically injected into all AI prompt structures and offline generation calls to ensure customized, on-brand output.
-
-### ⚙️ 12. Settings & Theming Studio (`SettingsScreen.kt`)
-* **Visual Customization:** Features 4 beautiful color palettes (*Pitch Black, Cyber Glow, Warm Editorial, Deep Ocean*), 3 card presets (*Modern Clean, Floating Card, Glassmorphism*), slider controls for corner radius (`0-28dp`) and card spacing (`4-24dp`), and navigation choices (*Modern Bottom Bar vs. Floating Nav*).
+- **One screen for today.** Open the app, see your habits, check them off. Done.
+- **Consistency over perfection.** Streaks and calendars show your pattern without guilt-tripping you for a missed day.
+- **Your data, your device.** Everything lives in your browser's local storage. There is no server, no account, no tracking.
+- **Installable.** Add it to your home screen and it behaves like a native app — even offline.
 
 ---
 
-## 🤖 Dual-Engine Intelligence
+## 📸 Screenshots
 
-SaBuddy uses a dual-engine architecture to ensure generation tools remain available whether you are online or offline.
+<div align="center">
 
-### 1. Live Gemini Mode
+<table>
+  <tr>
+    <td align="center">
+      <img src="screenshots/today.png" alt="Today screen" width="260" /><br />
+      <sub><b>Today</b></sub>
+    </td>
+    <td align="center">
+      <img src="screenshots/calendar.png" alt="Calendar screen" width="260" /><br />
+      <sub><b>Calendar</b></sub>
+    </td>
+    <td align="center">
+      <img src="screenshots/progress.png" alt="Progress screen" width="260" /><br />
+      <sub><b>Progress</b></sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="screenshots/planner.png" alt="Planner screen" width="260" /><br />
+      <sub><b>Planner</b></sub>
+    </td>
+    <td align="center">
+      <img src="screenshots/settings.png" alt="Settings screen" width="260" /><br />
+      <sub><b>Settings</b></sub>
+    </td>
+    <td align="center">
+      <img src="screenshots/dark-mode.png" alt="Dark mode" width="260" /><br />
+      <sub><b>Dark Mode</b></sub>
+    </td>
+  </tr>
+</table>
 
-When a Gemini API key is configured, SaBuddy communicates directly with the lightweight, powerful `gemini-1.5-flash` model.
+</div>
 
-* **REST Client:** Direct REST endpoint integration via `OkHttpClient`.
-* **Timeout Settings:** Connect timeout of 30s and read/write timeouts of 60s for network stability.
-* **Multimodal Visual Inputs:** Converts local images or screenshots to Base64-encoded JPEGs sent via inline payload blocks for design and layout critique.
-* **Structured Responses:** Injects custom markdown rules instructing Gemini to return JSON blocks alongside natural language, enabling automated interactive card rendering inside the chat.
-
-```text
-Endpoint Configuration:
-https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={API_KEY}
-```
-
----
-
-### 2. Built-in Offline Fallback Mode
-
-If no API key is provided, or if the device lacks internet access, `GeminiService` automatically activates its rule-based fallback system.
-
-* **Zero External Dependencies:** Works in cell-dead zones, airplane mode, or during API outages.
-* **Matching Generative Fallbacks:** Features custom localized templates for all creative studios:
-  - `generateLocalIdeas()`
-  - `generateLocalReels()`
-  - `generateLocalPosts()`
-  - `generateLocalCaptions()`
-  - `generateLocalHashtags()`
-  - `generateLocalChatResponse()`
-  - `generateLocalCalendarPlan()`
-  - `generateLocalAudit()`
-
-> [!TIP]
-> The app remains fully functional offline, using your local Brand Kit configurations to keep fallback ideas, scripts, and plans aligned with your brand identity.
-
----
-
-## 🌐 Social Media Platform Support
-
-SaBuddy supports content planning, platform formatting presets, visual badges, and metadata tracking for:
-
-- **Instagram** (Reels scripts, carousel outlines, and grids)
-- **TikTok** (Short-form scripting and hook formatting)
-- **YouTube** (Shorts scripts, video descriptions, and formatting)
-- **LinkedIn** (Long-form posts, carousels, and image updates)
-- **X (Twitter)** (Short-form updates and poll configurations)
-- **Facebook** (Feed posts, caption layouts, and scheduling)
-
-> [!IMPORTANT]
-> **API Sync Warning:**  
-> This support uses local profile/handle configurations, organizational scheduling, and badges. There is **no live OAuth link**, account synchronization, or background automated publishing to social platforms. All metrics are updated manually on-device.
+> **📷 To add your screenshots:** Create a folder named `screenshots/` at the root of your repository and place the following image files inside:
+> `today.png`, `calendar.png`, `progress.png`, `planner.png`, `settings.png`, `dark-mode.png`
+>
+> Recommended size: **~600px wide** (they'll be displayed at 260px). Use PNG for best quality.
 
 ---
 
-## 🧰 Technology Stack & Specifications
+## ✨ Features
 
-| Component | Technical Specification |
+### Core Habit Management
+
+| Feature | How it works |
 |---|---|
-| **Programming Language** | Kotlin (`2.0.21`) |
-| **UI Framework** | Jetpack Compose (100% declarative UI; zero legacy XML layouts; Android Edge-to-Edge enabled) |
-| **Design System** | Material Design 3 (`M3`) with custom `SaBuddyTheme` |
-| **Android SDK Support** | Minimum SDK: `26` (Android 8.0 Oreo) · Target SDK: `36` (Android 16) · Compile SDK: `36` |
-| **Build System** | Gradle Kotlin DSL (`build.gradle.kts`) with central Version Catalog (`gradle/libs.versions.toml`) |
-| **Android Gradle Plugin** | `8.9.0` |
-| **Compose BOM** | `2025.02.00` |
-| **Lifecycle Components** | `lifecycle-viewmodel-compose:2.8.7` · `activity-compose:1.10.1` |
-| **Local Database** | Room Database (`2.6.1`) + `room-ktx` (KSP compiler) |
-| **HTTP Engine** | OkHttp (`4.12.0`) |
-| **JSON Serialization** | Kotlinx Serialization JSON (`1.7.3`) |
-| **Image Loading** | Coil Compose (`2.7.0`) |
-| **Asynchronous Engine** | Kotlinx Coroutines Android (`1.8.1`) |
+| **Create habits** | Name, optional description, frequency (daily / weekdays / custom), and category. A new habit appears immediately in Today. |
+| **Complete a habit** | Tap the habit card to toggle completion for today. A satisfying animation confirms the action. |
+| **Edit a habit** | Open the habit's detail view to change name, description, frequency, or category. |
+| **Delete a habit** | Remove it entirely. Completion history for that habit is also removed. |
+| **Archive a habit** | Soft-delete. The habit disappears from Today but its history is preserved for statistics. |
+| **Reorder habits** | Drag or use up/down controls to set your preferred display order. |
+
+### Tracking & Visualization
+
+| Feature | How it works |
+|---|---|
+| **Streak tracking** | For each habit, VEYLO calculates your *current streak* (consecutive days ending today or yesterday) and *longest streak* (all-time best). |
+| **Calendar view** | A monthly grid where each day is shaded by completion ratio. Tap a day to see exactly which habits were done. |
+| **Progress dashboard** | Aggregated stats: overall completion %, per-habit streaks, weekly bar chart, monthly summary. |
+| **Completion history** | Every check-in is timestamped by date, giving a full longitudinal record. |
+
+### Planner
+
+A **rule-based** scheduling assistant (no AI, no API calls). You tell it what habits you want to build and when you have time; it distributes them across your day using load-balancing heuristics.
+
+### Experience
+
+| Feature | How it works |
+|---|---|
+| **Themes** | Light, Dark, or System (follows OS preference). Choice persists across sessions. |
+| **Animations** | Framer Motion powers micro-interactions: card taps, screen transitions, streak increments. |
+| **PWA / Offline** | Installable via browser. Service worker caches the app shell so it loads and works with zero connectivity. |
+| **Local-only data** | All state is serialized to `localStorage`. No network requests are ever made for data. |
 
 ---
 
-## 🏗️ Architecture Specifications
+## 📱 Screens
 
-SaBuddy is built on MVVM (Model-View-ViewModel) design principles and a Unidirectional Data Flow (UDF) pattern.
+### Today
 
-```text
-Jetpack Compose Views (Screens & Layouts)
-        │
-        ▼ (UI Events / Interactions)
-SaBuddyViewModel (State Holder)
-        │
-        ├───────────────────────────────┐
-        ▼ (Database Actions)            ▼ (Settings / Theme Updates)
-Room Database (SQLite)          PreferencesManager (SharedPreferences)
-        │                               │
-        ▼ (Reactive Flow Updates)       ▼ (Emits Updated Settings)
-  State Flows ──────────────────────────┘
-        │
-        ▼ (collectAsStateWithLifecycle)
-Declarative Compose UI Redraw
+The home screen. Shows every **active** (non-archived) habit for the current date, grouped by category. Each card displays:
+
+- Habit name and category badge
+- Current streak (e.g., "🔥 12 days")
+- A large tap target to toggle completion
+- A subtle color shift when completed
+
+A header shows today's date and an overall "X of Y done" counter.
+
+### Calendar
+
+A standard 7-column monthly grid. Each cell is filled with a color whose intensity maps to the **completion ratio** for that day (0% → empty, 100% → full color). Navigating months is a swipe or arrow tap. Tapping a specific day opens a detail panel listing every habit and whether it was completed.
+
+### Progress
+
+A statistics screen with:
+
+- **Overall completion rate** for the selected period (week / month / all-time)
+- **Per-habit streak cards** — current and longest streak
+- **Weekly bar chart** — 7 bars, one per day, showing completions
+- **Monthly summary** — total expected vs. total completed, with a percentage ring
+
+All numbers are computed client-side from the stored completion array. No server round-trips.
+
+### Planner
+
+A multi-step guided flow:
+
+1. **Select habits** — pick which habits to schedule.
+2. **Define time windows** — e.g., "7–9 AM", "12–1 PM", "6–8 PM".
+3. **Set frequency** — daily, weekdays, or custom days.
+4. **Review & apply** — the planner outputs a suggested daily layout. Accept, edit, or discard.
+
+The planner is fully offline and deterministic.
+
+### Settings
+
+- Theme picker (Light / Dark / System)
+- App version and about info
+- Reset all data (with confirmation dialog)
+
+---
+
+## 🛠 Tech Stack
+
+| Technology | Role |
+|---|---|
+| **React 18** | UI layer. Functional components + hooks. No class components. |
+| **TypeScript 5** | Static typing across the entire codebase. Strict mode enabled. |
+| **Vite 6** | Dev server (HMR) and production bundler (Rollup under the hood). |
+| **Tailwind CSS 3** | Utility-first styling. No custom CSS files beyond `index.css` for base resets. |
+| **Framer Motion 11** | Declarative animations: layout transitions, tap springs, staggered lists. |
+| **Lucide React** | 300+ stroke-based icons. Tree-shaken at build time. |
+| **date-fns** | Immutable date utilities (formatting, adding days, start/end of month, etc.). |
+| **vite-plugin-pwa** | Generates `sw.js` (service worker) and `workbox-*.js` at build time. |
+
+> **No backend. No database. No authentication. No third-party API calls.**
+
+---
+
+## 🏗 Architecture
+
+VEYLO is a **client-side single-page application**. There is no server component.
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                    BROWSER (Client)                     │
+│                                                         │
+│  ┌───────────────────────────────────────────────────┐  │
+│  │              React Component Tree                 │  │
+│  │                                                   │  │
+│  │   App.tsx                                         │  │
+│  │    ├── <HabitProvider>  (Context + state)         │  │
+│  │    ├── <ThemeProvider>   (Context + state)        │  │
+│  │    └── <Screens>                                  │  │
+│  │         ├── Today                                 │  │
+│  │         ├── Calendar                              │  │
+│  │         ├── Progress                              │  │
+│  │         ├── Planner                               │  │
+│  │         └── Settings                              │  │
+│  └───────────────────────────────────────────────────┘  │
+│                         │                               │
+│                         ▼                               │
+│  ┌───────────────────────────────────────────────────┐  │
+│  │              Business Logic (pure fns)            │  │
+│  │                                                   │  │
+│  │   lib/statistics.ts   → streaks, rates, charts    │  │
+│  │   lib/planner.ts      → scheduling heuristics     │  │
+│  │   lib/storage.ts      → localStorage read/write   │  │
+│  │   utils/date.ts       → date-fns wrappers         │  │
+│  └───────────────────────────────────────────────────┘  │
+│                         │                               │
+│                         ▼                               │
+│  ┌───────────────────────────────────────────────────┐  │
+│  │           Persistence: localStorage               │  │
+│  │                                                   │  │
+│  │   key "veylo:habits"       → Habit[]              │  │
+│  │   key "veylo:completions"  → Completion[]         │  │
+│  │   key "veylo:theme"        → "light"|"dark"|"sys" │  │
+│  └───────────────────────────────────────────────────┘  │
+│                                                         │
+│  ┌───────────────────────────────────────────────────┐  │
+│  │         Service Worker (vite-plugin-pwa)          │  │
+│  │         Caches: HTML, JS, CSS, icons              │  │
+│  │         Strategy: precache app shell              │  │
+│  └───────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────┘
 ```
 
-### Key Architectural Guidelines:
-* **Single-Activity Architecture:** `MainActivity` acts as the single entry point, hosting `SaBuddyMainScaffold` to route all drawer, top bar, bottom navigation, and screen updates.
-* **Unidirectional Flow:** Interaction events are passed directly to `SaBuddyViewModel`. The ViewModel mutates the local data layers and emits state changes back to lifecycle-aware Compose collectors.
-* **Reactive Database Queries:** Database tables expose reactive Kotlin `Flow` queries, ensuring UI displays update immediately when database contents change.
-* **Separated Service Interfaces:** `GeminiService` encapsulates network requests, Base64 processing, and offline fallback fallbacks, keeping ViewModels free of direct network code.
+### Data flow
+
+```
+User taps "Complete" on a HabitCard
+        │
+        ▼
+HabitCard calls useHabits().toggleCompletion(habitId, today)
+        │
+        ▼
+HabitContext: updates completions array in React state
+        │
+        ├──► lib/storage.ts: writes updated array to localStorage
+        │
+        ├──► lib/statistics.ts: recomputes streak for that habit
+        │
+        └──► React re-renders:
+              • HabitCard shows "completed" state
+              • StreakBadge increments with animation
+              • Today header counter updates
+```
+
+### Key design decisions
+
+- **Context over external state libraries.** The app has two state slices (habits, theme). React Context + `useReducer` is sufficient and avoids dependency bloat.
+- **Pure functions for logic.** Streak calculation, planner scheduling, and statistics are all exported as pure functions with no side effects.
+- **Flat completion array.** Rather than nesting completions inside each habit object, completions are a separate flat array. This makes filtering by date or habit a single O(n) pass.
+- **Tailwind for all styling.** No CSS modules, no styled-components. Custom design tokens live in `tailwind.config.js`.
 
 ---
 
-## 📁 Project Directory Structure
+## 📁 Project Structure
 
-```text
-app/src/main/java/com/example/
-├── MainActivity.kt                          # Single Activity entry point
-└── sabuddy/
-    ├── data/
-    │   ├── SaBuddyEntities.kt               # Room Database schemas (Content, Calendar, Platforms, Activity, Analytics)
-    │   ├── SaBuddyDao.kt                    # Data Access Object with reactive Flow queries
-    │   ├── SaBuddyDatabase.kt               # Local Room Database with seed callback
-    │   └── PreferencesManager.kt            # Wrapper for local app settings, theme, brand kit, and API keys
-    ├── models/
-    │   └── SaModels.kt                      # Shared Enums, State Classes, and Structured Cards
-    ├── services/
-    │   └── GeminiService.kt                 # REST Network Client, Image Encoder, and Offline Fallback Engine
-    ├── viewmodels/
-    │   └── SaBuddyViewModel.kt              # App-wide State Machine, Database mutations, and AI orchestrator
-    └── ui/
-        ├── SaBuddyMainLayout.kt             # Scaffold navigation, Drawer, and screen routes
-        ├── components/
-        │   ├── CommonComponents.kt          # Shared UI elements (Custom Card wrapper, Platform Badges)
-        │   └── AiStructuredCard.kt          # Specialized UI renderers for Structured JSON outputs
-        ├── screens/
-        │   ├── DashboardScreen.kt           # Central dashboard workspace
-        │   ├── ChatScreen.kt                # Multimodal chat studio
-        │   ├── IdeasScreen.kt               # Idea generator
-        │   ├── ReelsScreen.kt               # Short-form script builder
-        │   ├── PostsScreen.kt               # Text post & carousel designer
-        │   ├── CaptionsScreen.kt            # Caption and hook editor
-        │   ├── HashtagsScreen.kt            # Hashtag strategist
-        │   ├── CalendarScreen.kt            # Calendar planning board
-        │   ├── SavedContentScreen.kt        # Searchable saved repository
-        │   ├── AnalyticsScreen.kt           # Local stats & growth audits
-        │   ├── BrandKitScreen.kt            # Identity profile settings
-        │   ├── SettingsScreen.kt            # Customization panel
-        │   └── SetupScreen.kt               # Onboarding walk-through
-        └── theme/
-            ├── Color.kt                     # UI Theme color palettes
-            ├── Theme.kt                     # SaBuddyTheme composable setup
-            └── Type.kt                      # Material Design Typography
+```
+Veylo/
+├── public/
+│   ├── manifest.webmanifest        # PWA manifest
+│   ├── icons/
+│   │   ├── icon-192.png            # PWA icon (small)
+│   │   └── icon-512.png            # PWA icon (large)
+│   └── favicon.svg
+├── screenshots/                    # README screenshots
+│   ├── today.png
+│   ├── calendar.png
+│   ├── progress.png
+│   ├── planner.png
+│   ├── settings.png
+│   └── dark-mode.png
+├── src/
+│   ├── components/                 # Reusable UI components
+│   │   ├── HabitCard.tsx           # Single habit row in Today view
+│   │   ├── HabitForm.tsx           # Create / Edit habit modal
+│   │   ├── CalendarGrid.tsx        # Monthly calendar with heat cells
+│   │   ├── DayDetail.tsx           # Habits done on a specific day
+│   │   ├── StreakBadge.tsx         # Animated streak counter
+│   │   ├── ProgressRing.tsx        # Circular completion percentage
+│   │   ├── WeeklyBarChart.tsx      # 7-bar chart for the week
+│   │   ├── PlannerForm.tsx         # Multi-step planner input
+│   │   ├── PlannerResult.tsx       # Generated schedule display
+│   │   ├── ThemeToggle.tsx         # Light / Dark / System switcher
+│   │   ├── BottomNav.tsx           # Tab bar navigation
+│   │   ├── Modal.tsx               # Generic overlay modal
+│   │   └── ConfirmDialog.tsx       # Destructive-action confirmation
+│   ├── screens/                    # Top-level pages (one per tab)
+│   │   ├── Today.tsx
+│   │   ├── Calendar.tsx
+│   │   ├── Progress.tsx
+│   │   ├── Planner.tsx
+│   │   └── Settings.tsx
+│   ├── context/                    # React Context providers
+│   │   ├── HabitContext.tsx        # habits[], completions[], CRUD actions
+│   │   └── ThemeContext.tsx        # theme mode, toggle, persistence
+│   ├── lib/                        # Core business logic (pure functions)
+│   │   ├── statistics.ts           # Streaks, completion rates, aggregates
+│   │   ├── planner.ts              # Rule-based scheduling engine
+│   │   └── storage.ts              # localStorage get/set/serialize helpers
+│   ├── hooks/                      # Custom hooks
+│   │   ├── useHabits.ts            # Wrapper around HabitContext
+│   │   └── useTheme.ts             # Wrapper around ThemeContext
+│   ├── types/                      # TypeScript interfaces
+│   │   └── index.ts                # Habit, Completion, Frequency, ThemeMode
+│   ├── utils/                      # Small helpers
+│   │   └── date.ts                 # date-fns wrappers
+│   ├── App.tsx                     # Root: providers + tab routing
+│   ├── main.tsx                    # Entry point
+│   └── index.css                   # Tailwind directives + base resets
+├── index.html
+├── package.json
+├── vite.config.ts
+├── tailwind.config.js
+├── postcss.config.js
+├── tsconfig.json
+├── tsconfig.app.json
+├── eslint.config.js
+└── README.md
 ```
 
 ---
 
-## ⚙️ Installation & Getting Started
+## 📊 Data Model
 
-### Development Requirements
-To build and run SaBuddy locally, ensure your machine meets these requirements:
+### Habit
 
-- **IDE:** Android Studio Ladybug (`2024.2.1`) or Meerkat (`2024.3.1`) or newer.
-- **Java SDK:** JDK 17 (pre-configured with modern Gradle).
-- **Android SDK:** Platforms for Android SDK 36 (compile & target) and SDK 26 (minimum execution floor).
-- **Physical/Virtual Target:** Android Device/Emulator running Android 8.0 (Oreo / API 26) or newer.
+```typescript
+type Frequency = "daily" | "weekdays" | "custom";
 
-### Step-by-Step Setup
+interface Habit {
+  id: string;
+  name: string;
+  description?: string;
+  frequency: Frequency;
+  customDays?: number[];
+  category?: string;
+  color?: string;
+  archived: boolean;
+  createdAt: string;
+  order: number;
+}
+```
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/hmmlavi/SaBuddy.git
-   cd SaBuddy
-   ```
+### Completion
 
-2. **Open the project in Android Studio:**
-   - Launch Android Studio, click **Open**, and navigate to the cloned `SaBuddy` directory.
-   - Wait for the project structure to index and run initial Gradle sync tasks.
+```typescript
+interface Completion {
+  habitId: string;
+  date: string;      // "YYYY-MM-DD"
+}
+```
 
-3. **Check SDK Configuration:**
-   - Go to **Tools > SDK Manager** and confirm **Android 16 (Vanilla Ice Cream / API 36)** is installed.
+Completions are stored as a **flat array**. A habit is "done" on a given day if a matching `{ habitId, date }` entry exists.
 
-4. **Running the App:**
-   - Connect your Android device via USB debugging or start an emulator running API 26 or higher.
-   - Select the `app` run configuration in the toolbar.
-   - Click the **Run** button or press **Shift + F10** to compile and launch.
+- **What was done on a date?** → `completions.filter(c => c.date === "2025-01-15")`
+- **Was habit X done today?** → `completions.some(c => c.habitId === id && c.date === today)`
+- **Delete habit X** → `completions.filter(c => c.habitId !== id)`
 
----
+### Planner
 
-## 🔑 API Configuration & On-Device Security
+```typescript
+interface TimeSlot {
+  label: string;
+  start: string;
+  end: string;
+}
 
-SaBuddy is designed to be functional even without network access or cloud API keys.
+interface PlannerInput {
+  habitIds: string[];
+  timeSlots: TimeSlot[];
+  frequency: Frequency;
+}
 
-* **Secure Preference Storage:** API keys are stored entirely on your local device inside private `SharedPreferences` (`sabuddy_prefs`).
-* **Source Protection:** Keys are never hardcoded in source files or checked into version control.
-* **Verification Utilities:** Verify active keys inside the application at any time using the built-in connectivity test powered by `GeminiService.testApiKey()`.
+interface PlannerOutput {
+  schedule: {
+    habitId: string;
+    slotLabel: string;
+    suggestedTime: string;
+  }[];
+}
+```
 
-### Live Setup Steps:
-1. Complete the onboarding screen when launching the app for the first time, or go to **Settings > Gemini API Key**.
-2. Enter your key and test the connection.
-3. Toggle off **Local Mode** to enable live AI responses across your tools.
+### localStorage Keys
 
----
-
-## 📦 Command-Line Build Tools
-
-You can compile, build, and package SaBuddy directly from the terminal:
-
-* **Generate a Debug APK:**
-  ```bash
-  # macOS or Linux
-  ./gradlew :app:assembleDebug
-
-  # Windows PowerShell
-  .\gradlew.bat :app:assembleDebug
-  ```
-  The compiled package will save to:  
-  `app/build/outputs/apk/debug/app-debug.apk`
-
-* **Clean Build Cache:**
-  ```bash
-  ./gradlew clean
-  ```
-
-* **Generate Unsigned Release APK:**
-  ```bash
-  ./gradlew :app:assembleRelease
-  ```
-  *Note: Release signing configurations must be added to build files before store distribution.*
+| Key | Value |
+|---|---|
+| `veylo:habits` | `JSON.stringify(Habit[])` |
+| `veylo:completions` | `JSON.stringify(Completion[])` |
+| `veylo:theme` | `"light"` \| `"dark"` \| `"system"` |
 
 ---
 
-## 💾 Local Storage Design
+## 🧠 Planner
 
-* **On-Device SQLite Engine:** Room database maintains five distinct structural tables (`Content`, `Calendar`, `Platform`, `Activity`, `Analytics`) to track your library items, scheduling logs, active handles, and manual performance stats.
-* **Dynamic Flow Binding:** Database tables are bound directly to active views, updating the interface as actions occur.
-* **On-Device SharedPreferences:** Handles app configurations, custom palette options, Brand Kit details, handles, and your API key.
-* **Zero External Cloud Risk:** No cloud storage, remote database configurations, account-creation walls, or cross-device syncing are used. Your data stays entirely in your hands.
+The planner is a **deterministic, rule-based scheduler**. It does **not** use any AI model, LLM, or external API.
+
+### What the user provides
+
+1. **Which habits** to include in the plan.
+2. **Time windows** — e.g., "7 AM – 9 AM", "12 PM – 1 PM", "6 PM – 8 PM".
+3. **Frequency** — daily, weekdays, or specific days.
+
+### How it works
+
+```
+1. Parse inputs: habit list, time slots, frequency.
+2. Calculate available slots per time window.
+3. Distribute habits using round-robin load balancing:
+   - Assign the next habit to the slot with the fewest assignments.
+   - Respect morning/evening preferences if set.
+4. Check against existing active habits to avoid conflicts.
+5. Output an ordered schedule for the user to accept or edit.
+```
+
+### Properties
+
+- **Offline** — zero network calls.
+- **Deterministic** — same input always produces the same output.
+- **User-controlled** — the plan is a suggestion that must be explicitly accepted.
+- **Non-destructive** — rejecting the plan changes nothing.
 
 ---
 
-## ⚠️ Honest Limitations
+## 📈 Statistics
 
-SaBuddy is transparent about the boundaries of its current local-first version:
+All statistics are computed **client-side** as pure functions. No server, no caching layer.
 
-* **No Direct Social Publishing:** SaBuddy does not publish directly to social networks. It does not integrate social media OAuth login screens, store publish tokens, run automated background uploaders, or manage official publishing endpoints.
-* **Manual Performance Metrics:** The Analytics Studio runs on-device. It does not pull statistics, view counts, follower data, or analytics graphs from third-party social media APIs.
-* **No Background Notifications:** The Content Calendar does not schedule background alarms or device push notifications to alert you when scheduled posts are due.
-* **Local-First Database:** Your content, calendar entries, settings, and keys are saved in local device storage. There is no automated cloud backup, server sync, or multi-user collaboration workflow.
-* **Monolithic State ViewModel:** UI states, database actions, preferences, and API triggers flow through a single, central `SaBuddyViewModel` class.
+| Metric | Logic |
+|---|---|
+| **Completion rate** | Days where all active habits were done ÷ total active days × 100 |
+| **Current streak** | Walk backwards from today counting consecutive completed days. Stop at first gap. |
+| **Longest streak** | Scan entire history for the maximum run of consecutive days. |
+| **Weekly completions** | Per-day completion count for the last 7 days. |
+| **Monthly summary** | Total completions ÷ (active habits × days in month). |
+| **Calendar intensity** | Completions on that day ÷ active habits that applied that day → color scale. |
+
+### Edge cases
+
+- A habit created mid-week doesn't count against earlier days.
+- Archived habits are excluded from active counts but included in historical streaks.
+- "Weekdays" frequency means Saturday/Sunday misses don't break the streak.
 
 ---
 
-## 🛣️ Future Roadmap
+## 📴 Offline & Local Data
 
-The limitations above represent possible features for future updates:
+All application data is persisted in **`localStorage`**.
 
-- [ ] Add direct platform share-sheet integrations to copy and launch official social apps.
-- [ ] Add secure social platform OAuth links for official platform tools.
-- [ ] Support automated performance analytics fetching.
-- [ ] Add device-level alarms and push notifications for calendar reminders.
-- [ ] Provide optional, end-to-end encrypted cloud backup configurations.
-- [ ] Modularize the state architecture into per-feature ViewModels.
+- **Stored:** habits, completions, theme preference.
+- **Not stored:** anything else. No server, no IndexedDB, no file system access.
+- **Size:** A year of daily habits across 10 habits is roughly 50 KB. Well within the 5–10 MB `localStorage` quota.
+
+The **service worker** precaches the application shell (HTML, JS, CSS, icons). Once cached, the app loads and functions entirely offline. No API calls are made at runtime.
+
+**Data loss scenarios:** clearing browser data, switching browsers or devices, or using incognito mode.
+
+---
+
+## 📲 PWA
+
+VEYLO is a **Progressive Web App** installable on Chrome, Edge, Safari, and Firefox.
+
+| File | Purpose |
+|---|---|
+| `public/manifest.webmanifest` | App name, icons, `display: "standalone"`, theme color, start URL |
+| `public/icons/icon-192.png` | Small app icon |
+| `public/icons/icon-512.png` | Large app icon |
+| `vite.config.ts` → `VitePWA()` | Service worker generation and caching strategy |
+
+### Service worker
+
+Generated at build time by `vite-plugin-pwa`:
+
+1. **Precache** — downloads and caches all build assets on first visit.
+2. **Navigation fallback** — serves cached HTML for any navigation request.
+3. **Stale-while-revalidate** — serves cached assets immediately, refreshes in background.
+
+### Installation
+
+- **Mobile:** Tap "Add to Home Screen" in the browser prompt or share menu.
+- **Desktop:** Click the install icon in the address bar.
+- Opens in a **standalone window** with its own icon and name.
+
+---
+
+## 🎨 Theme System
+
+| Mode | Behavior |
+|---|---|
+| **Light** | Forces the light palette. |
+| **Dark** | Forces the dark palette. |
+| **System** | Follows `prefers-color-scheme`. Updates live if the OS theme changes. |
+
+- Theme is stored in `localStorage` under `"veylo:theme"`.
+- A `dark` class is toggled on `<html>` using Tailwind's `darkMode: "class"` strategy.
+- The preference persists across sessions and is applied before first paint to prevent flash.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **Node.js** ≥ 18
+- **npm** ≥ 9
+
+### Clone & Run
+
+```bash
+git clone https://github.com/hmmlavi/Veylo.git
+cd Veylo
+npm install
+npm run dev
+```
+
+The dev server starts at **http://localhost:5173**.
+
+### Production Build
+
+```bash
+npm run build
+```
+
+Output is written to `./dist/`. Deploy to any static host: Netlify, Vercel, GitHub Pages, Cloudflare Pages, etc.
+
+```bash
+npm run preview
+```
+
+Preview the production build locally.
+
+### Available Scripts
+
+| Command | Description |
+|---|---|
+| `npm install` | Install dependencies |
+| `npm run dev` | Start Vite dev server with HMR |
+| `npm run build` | Type-check and bundle to `dist/` |
+| `npm run preview` | Preview the production build |
+| `npm run lint` | Run ESLint |
+
+---
+
+## 🔧 Development
+
+### Adding a new screen
+
+1. Create `src/screens/MyNewScreen.tsx`.
+2. Add a tab entry in `BottomNav.tsx`.
+3. Wire it in `App.tsx`.
+4. Use `useHabits()` for data access.
+
+### Adding a new component
+
+1. Create the file in `src/components/`.
+2. Keep it presentational — data via props, events via callbacks.
+3. Use Tailwind for styling, Framer Motion for animation.
+
+### Adding business logic
+
+- **Statistics** → `src/lib/statistics.ts` — pure functions.
+- **Planner** → `src/lib/planner.ts` — add rules as composable functions.
+- **Date helpers** → `src/utils/date.ts`.
+
+### State management
+
+- **Habits & completions** → `HabitContext` via `useHabits()`.
+- **Theme** → `ThemeContext` via `useTheme()`.
+- **Local UI state** → `useState` / `useReducer` in the component.
+
+### Conventions
+
+- TypeScript strict mode. No `any`.
+- Functional components only.
+- Tailwind for all styling.
+- Pure functions in `lib/`. Side effects in context or hooks.
+- Framer Motion for orchestrated animations.
+
+---
+
+## 🔒 Privacy & Data
+
+| Question | Answer |
+|---|---|
+| Backend server? | **No.** |
+| Data sent to third parties? | **No.** |
+| Analytics or tracking? | **No.** |
+| User authentication? | **No.** |
+| Where is data stored? | **`localStorage` in your browser.** |
+| Can the developer see your data? | **No.** It never leaves your device. |
+
+VEYLO makes **zero network requests** after the initial page load.
+
+---
+
+## ⚠️ Limitations
+
+- **No cloud sync.** Data lives in one browser only.
+- **No user accounts.** No login, no profiles, no multi-device support.
+- **No push notifications.** Not currently implemented.
+- **Planner is heuristic.** Fixed load-balancing rules, not machine learning.
+- **localStorage is not encrypted.** Accessible to any JS on the same origin.
+- **PWA ≠ native app.** No background tasks, widgets, or app-store distribution.
+- **No cross-device sync.** Two devices don't know about each other.
+- **Browser storage limits.** ~5 MB cap, sufficient for years of habit data.
+
+---
+
+## 🗺 Roadmap
+
+### ✅ Completed
+
+- [x] Habit CRUD (create, view, edit, delete)
+- [x] Habit archiving with preserved history
+- [x] Daily completion tracking with tap-to-toggle
+- [x] Current & longest streak calculation
+- [x] Monthly calendar with completion heatmap
+- [x] Progress dashboard (completion rate, weekly chart, monthly summary)
+- [x] Rule-based adaptive planner
+- [x] Light / Dark / System theme with persistence
+- [x] PWA with service worker and offline support
+- [x] Local-only data storage
+- [x] Framer Motion micro-animations
+- [x] TypeScript strict mode throughout
+
+### 🔜 Planned
+
+- [ ] Data export / import (JSON backup)
+- [ ] Custom habit categories with user-defined colors
+- [ ] Drag-and-drop reordering
+- [ ] Browser Notification API reminders
+- [ ] Weekly / monthly review summaries
+- [ ] Habit templates
+- [ ] Optional cloud sync
+- [ ] Android / iOS wrappers via Capacitor or TWA
+- [ ] Accessibility audit
+- [ ] Unit tests for `lib/`
 
 ---
 
 ## 🤝 Contributing
 
-Contributions to SaBuddy are welcome! If you want to suggest improvements or bug fixes:
+```bash
+git clone https://github.com/hmmlavi/Veylo.git
+cd Veylo
+git checkout -b feat/my-feature
+npm install
+npm run dev
+npm run lint
+npm run build
+git add .
+git commit -m "feat: add my feature"
+git push origin feat/my-feature
+```
 
-1. **Fork the Repository** on GitHub.
-2. **Create a Feature Branch** targeting your changes:
-   ```bash
-   git checkout -b feature/amazing-improvement
-   ```
-3. **Commit Your Updates:** Keep commits organized and descriptive.
-4. **Push Your Changes:**
-   ```bash
-   git push origin feature/amazing-improvement
-   ```
-5. **Open a Pull Request:** Explain the scope and purpose of your modifications.
-
----
-
-## 📄 License
-
-This repository does not currently include a global open-source license. If you intend to use this project as a basis for your own application, please check back for updates or contact the repository owner [hmmlavi](https://github.com/hmmlavi) for usage guidelines.
+- Keep PRs small and focused.
+- Follow the existing code style.
+- Update types in `src/types/` for new data shapes.
+- Test in both light and dark themes.
 
 ---
 
-## ⚖️ General Disclaimer
+## 👤 Author
 
-SaBuddy is an AI-assisted writing helper and editorial planner. All generated outputs (such as scripts, ideas, hashtags, captions, and strategies) should be reviewed and edited before publishing. Platform names are used strictly to describe content formatting, planning, and organizational workflows.
+[hmmlavi](https://github.com/hmmlavi)
 
 ---
 
 <div align="center">
 
-### Built for creators who want a clearer, calmer content workflow.
+**Small habits. Better days.**
 
-✦ **SaBuddy — Plan with clarity. Create with confidence. Stay consistent.** ✦
-
-**Built by [hmmlavi](https://github.com/hmmlavi)**
+*Built with React, TypeScript, and a lot of ☕*
 
 </div>
