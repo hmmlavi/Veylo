@@ -72,12 +72,6 @@ Most habit apps drown you in dashboards, gamification, and social features. VEYL
 </table>
 
 </div>
-
-> **📷 To add your screenshots:** Create a folder named `screenshots/` at the root of your repository and place the following image files inside:
-> `today.png`, `calendar.png`, `progress.png`, `planner.png`, `settings.png`, `dark-mode.png`
->
-> Recommended size: **~600px wide** (they'll be displayed at 260px). Use PNG for best quality.
-
 ---
 
 ## ✨ Features
