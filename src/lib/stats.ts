@@ -1,5 +1,5 @@
 import type { Completions, Habit, HaboData } from './types';
-import { addDays, dayPart, key, parseKey, shortWeekday } from './dates';
+import { addDays, dayPart, daysInMonth, key, parseKey, shortWeekday } from './dates';
 
 /* ————— scheduling ————— */
 
@@ -158,6 +158,34 @@ export function buckets(data: HaboData, days: number, n: number): Bucket[] {
     const to = addDays(new Date(), -(b * per));
     for (let i = b * per; i < (b + 1) * per; i++) {
       const s = dayStats(data, addDays(new Date(), -i));
+      done += s.done;
+      total += s.total;
+    }
+    out.push({ from, to, rate: total ? done / total : 0 });
+  }
+  return out;
+}
+
+/**
+ * Last `n` calendar months (oldest first), the final one being the current
+ * month to date. Unlike `buckets`, every bar lines up with a real month, so
+ * month labels never duplicate or skip.
+ */
+export function monthBuckets(data: HaboData, n: number): Bucket[] {
+  const now = new Date();
+  const out: Bucket[] = [];
+  for (let b = n - 1; b >= 0; b--) {
+    const y = now.getFullYear();
+    const m = now.getMonth() - b;
+    const from = new Date(y, m, 1);
+    const last = daysInMonth(from.getFullYear(), from.getMonth());
+    const to = new Date(from.getFullYear(), from.getMonth(), last);
+    let done = 0;
+    let total = 0;
+    for (let day = 1; day <= last; day++) {
+      const d = new Date(from.getFullYear(), from.getMonth(), day);
+      if (key(d) > key(now)) break; // don't count the future
+      const s = dayStats(data, d);
       done += s.done;
       total += s.total;
     }
