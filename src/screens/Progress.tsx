@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Sparkles, TrendingDown, TrendingUp, Minus as MinusIcon } from 'lucide-react';
 import { useHabo } from '../lib/store';
 import { daysAgo, weekdayLetter } from '../lib/dates';
-import { bestStreakOverall, buckets, insights, periodStat, activeHabits } from '../lib/stats';
+import { bestStreakOverall, buckets, insights, monthBuckets, periodStat, activeHabits } from '../lib/stats';
 import { EmptyState } from '../components/ui';
 
 type Range = 'week' | 'month' | 'year';
@@ -20,7 +20,10 @@ export default function Progress() {
 
   const stat = useMemo(() => periodStat(data, cfg.days), [data, cfg.days]);
   const best = useMemo(() => bestStreakOverall(data), [data]);
-  const chart = useMemo(() => buckets(data, cfg.days, cfg.n), [data, cfg.days, cfg.n]);
+  const chart = useMemo(
+    () => (range === 'year' ? monthBuckets(data, cfg.n) : buckets(data, cfg.days, cfg.n)),
+    [data, range, cfg.days, cfg.n],
+  );
   const tips = useMemo(() => insights(data), [data]);
   const hasHabits = activeHabits(data).length > 0;
   const missed = stat.total - stat.done;
@@ -29,7 +32,7 @@ export default function Progress() {
     if (range === 'week') return weekdayLetter(daysAgo(cfg.n - 1 - i).getDay());
     const b = chart[i];
     if (range === 'month') return `${b.to.getMonth() + 1}/${b.to.getDate()}`;
-    return ['J','F','M','A','M','J','J','A','S','O','N','D'][b.to.getMonth()];
+    return ['J','F','M','A','M','J','J','A','S','O','N','D'][b.from.getMonth()];
   };
 
   const delta = stat.delta;
