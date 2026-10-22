@@ -117,6 +117,7 @@ adb install android/app/build/outputs/apk/debug/app-debug.apk
 |---|---|
 | `npm run dev` | Start Vite’s development server. |
 | `npm run build` | Build the production web app. |
+| `npm run build:pages` | Build the site for the repository GitHub Pages URL. |
 | `npm run preview` | Preview the production web build. |
 | `npm run android:sync` | Build the web app and sync it into the Capacitor Android project. |
 | `npm run android:apk` | Sync and build the Android debug APK. |
