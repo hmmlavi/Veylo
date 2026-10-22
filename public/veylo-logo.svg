@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="none">
+  <defs>
+    <linearGradient id="tile" x1="70" y1="0" x2="880" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#123B87"/>
+      <stop offset=".34" stop-color="#071D4B"/>
+      <stop offset="1" stop-color="#03102D"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="125" y1="20" x2="930" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1584FF"/>
+      <stop offset=".48" stop-color="#075DDF"/>
+      <stop offset="1" stop-color="#063C9F"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="66" y1="12" x2="425" y2="431" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5597FF" stop-opacity=".58"/>
+      <stop offset=".58" stop-color="#2675F5" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#0B3D96" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="check" x1="347" y1="394" x2="729" y2="702" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFBE8"/>
+      <stop offset="1" stop-color="#FFF4C9"/>
+    </linearGradient>
+    <radialGradient id="dot" cx="688" cy="590" r="190" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#BDF5FF"/>
+      <stop offset=".42" stop-color="#52C8FF"/>
+      <stop offset="1" stop-color="#0865F5"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Rounded app tile and electric blue edge. -->
+  <path d="M328 5h368c186 0 323 133 323 323v368c0 188-134 323-323 323H328C139 1019 5 884 5 696V328C5 138 140 5 328 5Z" fill="url(#tile)" stroke="url(#edge)" stroke-width="10"/>
+
+  <!-- Soft glass highlight across the upper-left corner. -->
+  <path d="M326 10h285C475 151 175 382 10 554V328C10 142 143 10 326 10Z" fill="url(#sheen)"/>
+
+  <!-- Cream checkmark with rounded terminals. -->
+  <path d="m312 454 180 185 268-287" stroke="url(#check)" stroke-width="101" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Blue finishing dot. -->
+  <circle cx="727" cy="648" r="75" fill="url(#dot)"/>
+</svg>
