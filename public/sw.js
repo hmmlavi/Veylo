@@ -1,10 +1,11 @@
 /* Veylo offline cache keeps the app available after the first visit. */
-const CACHE = 'veylo-cache-v1';
+const CACHE = 'veylo-cache-v2';
 const ROOT = new URL('./', self.location.href).href;
 const CORE = [
   ROOT,
   new URL('index.html', ROOT).href,
   new URL('manifest.webmanifest', ROOT).href,
+  new URL('veylo-logo.svg', ROOT).href,
   new URL('icons/icon-192.png', ROOT).href,
   new URL('icons/icon-512.png', ROOT).href,
 ];

@@ -34,12 +34,12 @@ Veylo keeps habit tracking simple. Start with the day in front of you, check in 
 
 | | Feature | What it does |
 |---|---|---|
-| ✅ | **Build a routine** | Create daily, weekday, or custom-day habits; edit, archive, reorder, or remove them. |
+| ✅ | **Build a routine** | Give each habit a name, icon, schedule, optional daily goal, time, and reminder; edit, archive, reorder, or remove it. |
 | 🔥 | **Keep your momentum** | Check in with a tap and follow current and longest streaks over time. |
 | 🗓️ | **See the bigger picture** | Browse a monthly completion calendar and open any day to review it. |
-| 📈 | **Understand your progress** | View completion summaries, habit streaks, and weekly and monthly trends. |
+| 📈 | **Understand your progress** | View completion summaries, habit streaks, and weekly, monthly, and yearly trends. |
 | 🧭 | **Plan a realistic day** | Spread selected habits across your available time windows with a deterministic, rule-based planner. |
-| 🌗 | **Make it yours** | Choose Light, Dark, or System appearance. |
+| 🌗 | **Make it yours** | Choose Midnight, Cream, Slate, Forest, or Lavender, with Light, Dark, or System appearance. |
 | 📴 | **Keep going offline** | The installed web app caches its shell; tracking and planning work locally. |
 
 ## 📸 Screenshots
@@ -130,6 +130,10 @@ adb install android/app/build/outputs/apk/debug/app-debug.apk
 - **Offline planning.** The planner is deterministic and does not call an AI model or external API.
 
 Browser storage is specific to the browser and device. Clearing browser or app data can erase it, and there is no built-in cloud sync or backup yet.
+
+## 🗓️ Plan around your real day
+
+Tell the planner your focus, when you tend to be productive, and any notes that matter to your routine. Veylo uses a deterministic, rule-based planner to suggest habits and times. Review the suggestions and choose what to apply; planning does not make network requests.
 
 ## 🧭 How the app is organized
 
