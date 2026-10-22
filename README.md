@@ -517,6 +517,19 @@ npm run dev
 
 The dev server starts at **http://localhost:5173**.
 
+### Android APK
+
+The Android app is a Capacitor wrapper around the same offline-first Veylo web app. It keeps habit data on the device.
+
+Prerequisites: Node.js ≥ 18, JDK 21, and Android SDK platform/build tools 36.
+
+```bash
+npm install
+npm run android:apk
+```
+
+The debug APK is written to `android/app/build/outputs/apk/debug/app-debug.apk`. Install it on Android with `adb install app-debug.apk`. GitHub Releases provides the downloadable APK.
+
 ### Production Build
 
 ```bash
