@@ -1,40 +1,89 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="Veylo — midnight app icon">
   <defs>
-    <linearGradient id="tile" x1="70" y1="0" x2="880" y2="1024" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#123B87"/>
-      <stop offset=".34" stop-color="#071D4B"/>
-      <stop offset="1" stop-color="#03102D"/>
-    </linearGradient>
-    <linearGradient id="edge" x1="125" y1="20" x2="930" y2="1000" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#1584FF"/>
-      <stop offset=".48" stop-color="#075DDF"/>
-      <stop offset="1" stop-color="#063C9F"/>
-    </linearGradient>
-    <linearGradient id="sheen" x1="66" y1="12" x2="425" y2="431" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#5597FF" stop-opacity=".58"/>
-      <stop offset=".58" stop-color="#2675F5" stop-opacity=".2"/>
-      <stop offset="1" stop-color="#0B3D96" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="check" x1="347" y1="394" x2="729" y2="702" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FFFBE8"/>
-      <stop offset="1" stop-color="#FFF4C9"/>
-    </linearGradient>
-    <radialGradient id="dot" cx="688" cy="590" r="190" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#BDF5FF"/>
-      <stop offset=".42" stop-color="#52C8FF"/>
-      <stop offset="1" stop-color="#0865F5"/>
-    </radialGradient>
-  </defs>
+  <linearGradient id="vg-tile-m" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#1F2C49"/>
+    <stop offset=".62" stop-color="#131C30"/>
+    <stop offset="1" stop-color="#0A0F1C"/>
+  </linearGradient>
+  <radialGradient id="vg-halo-m" gradientUnits="userSpaceOnUse" cx="262" cy="128" r="690">
+    <stop offset="0" stop-color="#6E93CE" stop-opacity=".34"/>
+    <stop offset=".52" stop-color="#6E93CE" stop-opacity=".07"/>
+    <stop offset="1" stop-color="#6E93CE" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="vg-warm-m" gradientUnits="userSpaceOnUse" cx="902" cy="1062" r="640">
+    <stop offset="0" stop-color="#E9DDC4" stop-opacity=".10"/>
+    <stop offset="1" stop-color="#E9DDC4" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="vg-arm-m" gradientUnits="userSpaceOnUse" x1="452" y1="676" x2="718" y2="388">
+    <stop offset="0" stop-color="#F1EDE2"/>
+    <stop offset=".55" stop-color="#C9D4E9"/>
+    <stop offset="1" stop-color="#7EA6E6"/>
+  </linearGradient>
+  <radialGradient id="vg-bead-m" cx=".36" cy=".3" r=".9">
+    <stop offset="0" stop-color="#B4CDF1"/>
+    <stop offset=".6" stop-color="#6E93CE"/>
+    <stop offset="1" stop-color="#4F76B4"/>
+  </radialGradient>
+  <linearGradient id="vg-form-m" gradientUnits="userSpaceOnUse" x1="0" y1="240" x2="0" y2="740">
+    <stop offset="0" stop-color="#FFFFFF" stop-opacity=".26"/>
+    <stop offset=".42" stop-color="#FFFFFF" stop-opacity="0"/>
+    <stop offset="1" stop-color="#020610" stop-opacity=".16"/>
+  </linearGradient>
+  <linearGradient id="vg-sheen-m" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FFFFFF" stop-opacity=".16"/>
+    <stop offset=".65" stop-color="#FFFFFF" stop-opacity=".03"/>
+    <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="vg-edge-m" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#FFFFFF" stop-opacity=".22"/>
+    <stop offset=".55" stop-color="#FFFFFF" stop-opacity=".07"/>
+    <stop offset="1" stop-color="#FFFFFF" stop-opacity=".02"/>
+  </linearGradient>
+  <linearGradient id="vg-well-m" x1="0" y1="0" x2="0" y2="1">
+    <stop offset=".55" stop-color="#02040A" stop-opacity="0"/>
+    <stop offset="1" stop-color="#02040A" stop-opacity=".34"/>
+  </linearGradient>
+  <filter id="vg-cast-m" x="-40%" y="-40%" width="180%" height="180%">
+    <feDropShadow dx="0" dy="26" stdDeviation="34" flood-color="#03060E" flood-opacity=".55"/>
+  </filter>
+  <filter id="vg-bloom-m" x="-160%" y="-160%" width="420%" height="420%">
+    <feGaussianBlur stdDeviation="30"/>
+  </filter>
+  <filter id="vg-spec-m" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="1.4"/>
+  </filter>
+  <clipPath id="vg-tileclip-m"><rect width="1024" height="1024" rx="232"/></clipPath></defs>
 
-  <!-- Rounded app tile and electric blue edge. -->
-  <path d="M328 5h368c186 0 323 133 323 323v368c0 188-134 323-323 323H328C139 1019 5 884 5 696V328C5 138 140 5 328 5Z" fill="url(#tile)" stroke="url(#edge)" stroke-width="10"/>
+  <!-- tile -->
+  <rect width="1024" height="1024" rx="232" fill="url(#vg-tile-m)"/>
+  <rect width="1024" height="1024" rx="232" fill="url(#vg-halo-m)"/>
+  <rect width="1024" height="1024" rx="232" fill="url(#vg-warm-m)"/>
 
-  <!-- Soft glass highlight across the upper-left corner. -->
-  <path d="M326 10h285C475 151 175 382 10 554V328C10 142 143 10 326 10Z" fill="url(#sheen)"/>
+  <!-- monogram -->
+  <g filter="url(#vg-cast-m)">
+    <path d="M306 412 L452 676" fill="none" stroke="#F1EDE2" stroke-width="112" stroke-linecap="round"/>
+    <path d="M452 676 L718 388" fill="none" stroke="url(#vg-arm-m)" stroke-width="112" stroke-linecap="round"/>
+  </g>
 
-  <!-- Cream checkmark with rounded terminals. -->
-  <path d="m312 454 180 185 268-287" stroke="url(#check)" stroke-width="101" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- streak node -->
+  <circle cx="792" cy="306" r="44" fill="url(#vg-bead-m)" filter="url(#vg-bloom-m)" opacity=".5"><animate attributeName="opacity" values=".38;.72;.38" dur="4.2s" repeatCount="indefinite" /></circle>
+  <circle cx="792" cy="306" r="44" fill="url(#vg-bead-m)"/>
+  <circle cx="778" cy="291" r="10.5" fill="#FFFFFF" opacity=".85" filter="url(#vg-spec-m)"/>
 
-  <!-- Blue finishing dot. -->
-  <circle cx="727" cy="648" r="75" fill="url(#dot)"/>
+  <!-- glass: top sheen band clipped to tile -->
+  <g clip-path="url(#vg-tileclip-m)">
+    <path d="
+  M0 0 H1024 V262
+  C 772 396 252 396 0 262 Z" fill="url(#vg-sheen-m)"/>
+    <rect width="1024" height="1024" fill="url(#vg-well-m)"/>
+  </g>
+
+  <!-- form light on strokes -->
+  <g opacity=".55">
+    <path d="M306 412 L452 676" fill="none" stroke="url(#vg-form-m)" stroke-width="112" stroke-linecap="round"/>
+    <path d="M452 676 L718 388" fill="none" stroke="url(#vg-form-m)" stroke-width="112" stroke-linecap="round"/>
+  </g>
+
+  <!-- refracted edge -->
+  <path fill-rule="evenodd" fill="url(#vg-edge-m)" d="M232 0 H792 A232 232 0 0 1 1024 232 V792 A232 232 0 0 1 792 1024 H232 A232 232 0 0 1 0 792 V232 A232 232 0 0 1 232 0 Z M232 3 H792 A229 229 0 0 1 1021 232 V792 A229 229 0 0 1 792 1021 H232 A229 229 0 0 1 3 792 V232 A229 229 0 0 1 232 3 Z"/>
 </svg>

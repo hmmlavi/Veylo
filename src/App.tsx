@@ -163,7 +163,7 @@ function Shell() {
     >
       <ToastProvider>
         <StatusBar />
-        <div className="relative flex-1 overflow-hidden">
+        <div className="relative min-h-0 flex-1 overflow-hidden">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={screen}

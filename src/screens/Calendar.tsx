@@ -32,6 +32,8 @@ export default function Calendar() {
     const out: { k: string; date: Date | null }[] = [];
     for (let i = 0; i < lead; i++) out.push({ k: `b${i}`, date: null });
     for (let d = 1; d <= dim; d++) out.push({ k: key(new Date(y, m, d)), date: new Date(y, m, d) });
+    // Keep a full six-week grid so every month has the same complete layout.
+    for (let i = out.length; i < 42; i++) out.push({ k: `a${i}`, date: null });
     return out;
   }, [y, m, lead, dim]);
 
@@ -55,7 +57,7 @@ export default function Calendar() {
   const inCurrentMonth = view.getFullYear() === today.getFullYear() && view.getMonth() === today.getMonth();
 
   return (
-    <div className="flex h-full flex-col overflow-y-auto px-4 pb-6 pt-5">
+    <div className="flex h-full min-h-0 flex-col overflow-y-auto px-4 pb-6 pt-5">
       {/* header */}
       <div className="flex items-center justify-between px-1">
         <h1 className="text-[24px] font-bold tracking-tight" style={{ color: 'var(--text)' }}>Calendar</h1>
